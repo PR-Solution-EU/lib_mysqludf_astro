@@ -18,5 +18,7 @@
 */
 
 DROP FUNCTION IF EXISTS astro_info;
+DROP FUNCTION IF EXISTS astro;
 
-CREATE FUNCTION astro_info RETURNS STRING SONAME 'lib_mysqludf_astro.so';
+CREATE FUNCTION `astro_info` RETURNS STRING SONAME 'lib_mysqludf_astro.so';
+CREATE FUNCTION `astro` RETURNS STRING SONAME 'lib_mysqludf_astro.so';

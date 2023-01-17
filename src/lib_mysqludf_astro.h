@@ -143,8 +143,8 @@ private:
 //	std::string phases[8] {  "Neumond", "Zunehmende Sichel", "Erstes Viertel", "Zunehmender Mond",
 //						"Vollmond", "Abnehmender Mond", "Letztes Viertel", "Abnehmende Sichel" };
 
-	std::string phases[8] { "New Moon", "Waxing Crescent Moon", "First Quarter Moon", "Waxing Gibbous Moon,"
-	                   "Full Moon","Waning Gibbous Moon",  "Third Quarter Moon", "Waning Crescent Moon"};
+	std::string phases[8] { "New Moon", "Waxing crescent", "First quarter", "Waxing gibbous,"
+	                   "Full Moon","Waning gibbous",  "Third quarter", "Waning crescent"};
 
 
 

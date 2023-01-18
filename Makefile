@@ -3,17 +3,15 @@
 ########################################################################
 # Compiler settings
 CC = g++
-CXXFLAGS = -Wall -shared -I/usr/include/mysql -fPIC
-LDFLAGS = -ljsonparser
+CXXFLAGS = -Wall -shared -fPIC $$(mysql_config --cxxflags)
+LDFLAGS =
 
 # Makefile settings
 LIBNAME = lib_mysqludf_astro.so
 EXT = .cpp
 SRCDIR = src
 OBJDIR = obj
-
-LIBDIR = /usr/lib
-MYSQLPLUGINDIR = $(LIBDIR)/mysql/plugin
+MYSQLPLUGINDIR = $$(mysql_config --plugindir)
 
 ############## Do not change anything from here downwards! #############
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
@@ -58,10 +56,8 @@ cleandep:
 
 .PHONY: install
 install:
-	$(CP) $(LIBNAME) $(LIBDIR)/$(LIBNAME)
-	$(LN) -fs $(LIBDIR)/$(LIBNAME) $(MYSQLPLUGINDIR)/$(LIBNAME)
+	$(CP) $(LIBNAME) $(MYSQLPLUGINDIR)/$(LIBNAME)
 
 .PHONY: uninstall
 uninstall:
-	$(RM) $(MYSQLPLUGINDIR)/$(LIBNAME)
-	$(RM) $(LIBDIR)/$(LIBNAME)
+	$(RM) $(LIBNAME) $(MYSQLPLUGINDIR)/$(LIBNAME)

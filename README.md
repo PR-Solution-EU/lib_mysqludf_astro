@@ -3,9 +3,9 @@
 
 # MySQL sun/moon astronomy functions
 
-This repository contains the source code for a [MySQL loadable function](https://dev.mysql.com/doc/extending-mysql/8.0/en/adding-loadable-function.html) library (previously called UDF - User Defined Functions), which provides some additonal SQL astrononmy functions to get sunrise, sunset, moon phase and others for a geographical location for a specified time.
+This repository contains the source code for a [MySQL loadable function](https://dev.mysql.com/doc/extending-mysql/8.0/en/adding-loadable-function.html) library (previously called UDF - User Defined Functions), which provides an additonal SQL astrononmy function to get astro sun and moon information for a given geographical location and time.
 
-This library is based on [ESP32-Astronomie](https://github.com/schreibfaul1/ESP32-Astronomie) implementation.
+The calculations are based on an adaptation of the C++ Astronomy class from [ESP32-Astronomie](https://github.com/schreibfaul1/ESP32-Astronomie).
 
 If you like **lib_mysqludf_astro** give it a star or fork it:
 
@@ -194,5 +194,5 @@ Examples:
 +--------------------+---------+----------------------+
 | Name               | Version | Build                |
 +--------------------+---------+----------------------+
-| lib_mysqludf_astro | 1.0.0   | Jan 16 2023 09:00:00 |
+| lib_mysqludf_astro | 1.0.0   | Jan 18 2023 09:00:00 |
 +--------------------+---------+----------------------+

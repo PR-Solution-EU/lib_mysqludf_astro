@@ -134,7 +134,9 @@ private:
 		SIGN_AQUARIUS,		//!< Wassermann
 		SIGN_PISCES			//!< Fische
 	};
+
 	std::string ZodiacSign[12] {
+#if defined LANG_DE
 		"Widder",
 		"Stier",
 		"Zwillinge",
@@ -147,24 +149,76 @@ private:
 		"Steinbock",
 		"Wassermann",
 		"Fische"
+#elif defined LANG_ES
+		"Aries",
+		"Tauro",
+		"Géminis",
+		"Cáncer",
+		"Leo",
+		"Virgo",
+		"Libra",
+		"Escorpio",
+		"Sagitario",
+		"Capricornio",
+		"Acuario",
+		"Piscis"
+#elif defined LANG_FR
+		"Bélier",
+		"Taureau",
+		"Gémeaux",
+		"Cancer",
+		"Lion",
+		"Vierge",
+		"Balance",
+		"Scorpion",
+		"Sagittaire",
+		"Capricorne",
+		"Verseau",
+		"Poissons"
+#elif defined LANG_IT
+		"Ariete",
+		"Toro",
+		"Gemelli",
+		"Cancro",
+		"Leone",
+		"Vergine",
+		"Bilancia",
+		"Scorpione",
+		"Sagittario",
+		"Capricorno",
+		"Aquario",
+		"Pesci"
+#elif defined LANG_NL
+		"Ram",
+		"Stier",
+		"Tweelingen",
+		"Kreeft",
+		"Leeuw",
+		"Maagd",
+		"Weegschaal",
+		"Schorpioen",
+		"Boogschutter",
+		"Steenbok",
+		"Waterman",
+		"Vissen"
+#else	// LANG_xx
+		"Aries",
+		"Taurus",
+		"Gemini",
+		"Cancer",
+		"Leo",
+		"Virgo",
+		"Libra",
+		"Scorpio",
+		"Sagittarius",
+		"Capricorn",
+		"Aquarius",
+		"Pisces"
+#endif	// LANG_xx
 		};
 
-	// std::string ZodiacSign[12] {
-	// 	"Aries",
-	// 	"Taurus",
-	// 	"Gemini",
-	// 	"Cancer",
-	// 	"Leo",
-	// 	"Virgo",
-	// 	"Libra",
-	// 	"Scorpio",
-	// 	"Sagittarius",
-	// 	"Capricorn",
-	// 	"Aquarius",
-	// 	"Pisces"
-	// 	};
-
 	std::string lunaphase[8] {
+#if defined LANG_DE
 		"Neumond",
 		"Zunehmende Sichel",
 		"Erstes Viertel",
@@ -173,19 +227,53 @@ private:
 		"Abnehmender Mond",
 		"Letztes Viertel",
 		"Abnehmende Sichel"
+#elif defined LANG_ES
+		"Luna nueva",
+		"Luna creciente",
+		"Cuarto creciente",
+		"Luna gibosa creciente",
+		"Luna llena",
+		"Luna gibosa menguante",
+		"Cuarto menguante",
+		"Luna menguante"
+#elif defined LANG_FR
+		"Nouvelle lune",
+		"Premier croissant ou lune croissante",
+		"Premier quartier",
+		"Lune gibbeuse croissante",
+		"Pleine lune",
+		"Lune gibbeuse décroissante",
+		"Dernier quartier",
+		"Dernier croissant ou lune décroissante"
+#elif defined LANG_IT
+		"Luna nuova",
+		"Luna crescente crescente",
+		"Primo quarto",
+		"Luna crescente",
+		"Luna piena",
+		"Luna calante",
+		"Ultimo quarto",
+		"Luna crescente calante"
+#elif defined LANG_NL
+		"Nieuwe maan",
+		"Wassende",
+		"Eerste kwartier",
+		"Wassende maan",
+		"Volle maan",
+		"Krimpende of afnemende maan",
+		"Laatste kwartier",
+		"Krimpende"
+#else	// LANG_xx
+		"New Moon",
+		"Waxing crescent",
+		"First quarter",
+		"Waxing gibbous",
+		"Full Moon",
+		"Waning gibbous",
+		"Third quarter",
+		"Waning crescent"
+#endif	// LANG_xx
 		};
-
-	// std::string lunaphase[8] {
-	// 	"New Moon",
-	// 	"Waxing crescent",
-	// 	"First quarter",
-	// 	"Waxing gibbous",
-	// 	"Full Moon",
-	// 	"Waning gibbous",
-	// 	"Third quarter",
-	// 	"Waning crescent"
-	// 	};
-
 
 
 	enum LUNARPHASE

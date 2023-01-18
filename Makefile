@@ -2,8 +2,9 @@
 ############################# Makefile  ################################
 ########################################################################
 # Compiler settings
+LANG =
 CC = g++
-CXXFLAGS = -Wall -shared -fPIC $$(mysql_config --cxxflags)
+CXXFLAGS = -Wall -shared -fPIC $$(mysql_config --cxxflags) $(LANG)
 LDFLAGS =
 
 # Makefile settings

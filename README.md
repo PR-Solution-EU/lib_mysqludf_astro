@@ -19,12 +19,21 @@ If you like **lib_mysqludf_astro** give it a star or fork it:
 From the base directory run:
 
 ```bash
-make && sudo make install
+make clean && make && sudo make install
 ```
 
-This will build and install the library file. 
+This will build and install the library file.
 
-To active the loadable function within your MySQL server run the follwoing SQL queries:
+#### Localized binary
+
+To create a country-specific version, call make command with the parameter LANG=-DLANG_xx, where xx is the country code: DE=German, ES=Spanish, FR=French, IT=Italian, NL=Netherlands, EN=English (default).
+
+Example: Create and install a Dutch binary use
+```bash
+make clean && make LANG=-DLANG_NL && sudo make install
+```
+
+Finally, we activate the loadable function in MySQL Server with the following SQL queries:
 
 ```SQL
 CREATE FUNCTION astro_info RETURNS STRING SONAME 'lib_mysqludf_astro.so';
@@ -33,14 +42,14 @@ CREATE FUNCTION astro RETURNS STRING SONAME 'lib_mysqludf_astro.so';
 
 ### Uninstall
 
-To uninstall first deactive the loadable function within your MySQL server running the SQL queries:
+To uninstall first deactive the loadable function within your MySQL server using the SQL queries:
 
 ```SQL
 DROP FUNCTION IF EXISTS astro_info;
 DROP FUNCTION IF EXISTS astro;
 ```
 
-then uninstall the library file using command line:
+then uninstall the library using command line:
 
 ```bash
 sudo make uninstall

@@ -134,17 +134,57 @@ private:
 		SIGN_AQUARIUS,		//!< Wassermann
 		SIGN_PISCES			//!< Fische
 	};
-//	std::string TKZ[12] {"Widder", "Stier", "Zwillinge", "Krebs", "Loewe", "Jungfrau",
-//					"Waage", "Skorpion", "Schuetze", "Steinbock", "Wassermann", "Fische" };
+	std::string ZodiacSign[12] {
+		"Widder",
+		"Stier",
+		"Zwillinge",
+		"Krebs",
+		"Löwe",
+		"Jungfrau",
+		"Waage",
+		"Skorpion",
+		"Schütze",
+		"Steinbock",
+		"Wassermann",
+		"Fische"
+		};
 
-	std::string TKZ[12] {"Aries", "Taurus",  "Gemini",      "Cancer",    "Leo",      "Virgo",
-	                "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"};
+	// std::string ZodiacSign[12] {
+	// 	"Aries",
+	// 	"Taurus",
+	// 	"Gemini",
+	// 	"Cancer",
+	// 	"Leo",
+	// 	"Virgo",
+	// 	"Libra",
+	// 	"Scorpio",
+	// 	"Sagittarius",
+	// 	"Capricorn",
+	// 	"Aquarius",
+	// 	"Pisces"
+	// 	};
 
-//	std::string phases[8] {  "Neumond", "Zunehmende Sichel", "Erstes Viertel", "Zunehmender Mond",
-//						"Vollmond", "Abnehmender Mond", "Letztes Viertel", "Abnehmende Sichel" };
+	std::string lunaphase[8] {
+		"Neumond",
+		"Zunehmende Sichel",
+		"Erstes Viertel",
+		"Zunehmender Mond",
+		"Vollmond",
+		"Abnehmender Mond",
+		"Letztes Viertel",
+		"Abnehmende Sichel"
+		};
 
-	std::string phases[8] { "New Moon", "Waxing crescent", "First quarter", "Waxing gibbous,"
-	                   "Full Moon","Waning gibbous",  "Third quarter", "Waning crescent"};
+	// std::string lunaphase[8] {
+	// 	"New Moon",
+	// 	"Waxing crescent",
+	// 	"First quarter",
+	// 	"Waxing gibbous",
+	// 	"Full Moon",
+	// 	"Waning gibbous",
+	// 	"Third quarter",
+	// 	"Waning crescent"
+	// 	};
 
 
 
@@ -262,9 +302,9 @@ public:
 	std::string GetMoonRise_s() {return m_MoonRise.HHMMSS;}
 	std::string GetMoonTransit_s() {return m_MoonTransit.HHMMSS;}
 	std::string GetMoonSet_s() {return m_MoonSet.HHMMSS;}
-	std::string GetMoonPhase() {return phases[(int)m_MoonPhase];}
-	std::string GetMoonSign() {return TKZ[(int)m_MoonSign];}
-	std::string GetSunSign() {return TKZ[(int)m_SunSign];}
+	std::string GetMoonPhase() {return lunaphase[(int)m_MoonPhase];}
+	std::string GetMoonSign() {return ZodiacSign[(int)m_MoonSign];}
+	std::string GetSunSign() {return ZodiacSign[(int)m_SunSign];}
 
 private:
 

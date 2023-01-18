@@ -933,7 +933,7 @@ void Astronomy::setInput(as_date d, as_time t){
                 m_os+= "\"Astronomical\":\"" + m_SunAstronomicalTwilightEvening.HHMMSS + "\"";
             m_os+= "},";
             m_os+= "\"Ascension\":\"" + m_SunRA.HHMMSS + "\",";
-            m_os+= "\"Zodiac\":\"" + TKZ[(int)m_SunSign] + "\"";
+            m_os+= "\"Zodiac\":\"" + ZodiacSign[(int)m_SunSign] + "\"";
         m_os+= "},";
 
         m_os+= "\"Moon\":{";
@@ -954,12 +954,12 @@ void Astronomy::setInput(as_date d, as_time t){
             m_os+= "\"Set\":\"" + m_MoonSet.HHMMSS + "\",";
             m_os+= "\"Ascension\":\"" + m_MoonRA.HHMMSS + "\",";
             m_os+= "\"Phase\":{";
-                m_os+= "\"Name\":\"" + phases[(int)m_MoonPhase] + "\",";
+                m_os+= "\"Name\":\"" + lunaphase[(int)m_MoonPhase] + "\",";
                 m_os+= "\"Value\":" + std::to_string((int)m_MoonPhase) + ",";
                 m_os+= "\"Number\":" + std::to_string(m_MoonPhaseNumber)+ "";
             m_os+= "},";
             m_os+= "\"Age\":" + std::to_string(m_MoonAge) + ",";
-            m_os+= "\"Sign\":\"" + TKZ[(int)m_MoonSign] + "\"";
+            m_os+= "\"Sign\":\"" + ZodiacSign[(int)m_MoonSign] + "\"";
         m_os+= "}";
     m_os+= "}";
 }

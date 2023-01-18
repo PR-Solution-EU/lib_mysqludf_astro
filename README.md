@@ -120,9 +120,9 @@ The function returns the astro info as JSON string with the following keys:
 | $.Moon.Diameter               | Diameter of the moon | arc seconds |
 | $.Moon.Rise                   | Moonrise | 'hh:mm:ss' |
 | $.Moon.Culmination            | Culmination of the moon | 'hh:mm:ss' |
-| $.Moon.Set                    | Moonmset | 'hh:mm:ss' |
+| $.Moon.Set                    | Moonset | 'hh:mm:ss' |
 | $.Moon.Ascension              | Right ascension of the moon | 'hh:mm:ss' |
-| $.Moon.Phase.Name             | New Moon, Waxing crescent, First quarter, Waxing gibbous, Full Moon, Waning gibbous, Third quarter, Waning crescent |
+| $.Moon.Phase.Name             | Moon phase name | New Moon, Waxing crescent, First quarter, Waxing gibbous, Full Moon, Waning gibbous, Third quarter, Waning crescent |
 | $.Moon.Phase.Value            | Moon phase as index | 0..7 |
 | $.Moon.Phase.Number           | Age of moon in since New Moon (0) - Full Moon (1) | decimal |
 | $.Moon.Age                    | Age of moon in radians | 0..359 |

@@ -82,8 +82,8 @@ Time zone offset from UTC in hours
 
 The function returns the astro info as JSON string with the following keys:
 
-| JSON Key       | Description                 | Format/Unit |
-|----------------|-----------------------------|-------------|
+| JSON Key                      | Description                 | Format/Unit |
+|-------------------------------|-----------------------------|-------------|
 | $.Time                        | Date for the given result | 'YYYY-MM-DDThh:mm:ss' |
 | $.Zone                        | Time zone offset from UTC in hours | hour |
 | $.Latitude                    | Geographic latitude | degrees |
@@ -122,7 +122,7 @@ The function returns the astro info as JSON string with the following keys:
 | $.Moon.Culmination            | Culmination of the moon | 'hh:mm:ss' |
 | $.Moon.Set                    | Moonmset | 'hh:mm:ss' |
 | $.Moon.Ascension              | Right ascension of the moon | 'hh:mm:ss' |
-| $.Moon.Phase.Name             | Moon phase name | New Moon, Waxing Crescent Moon, First Quarter Moon, Waxing Gibbous Moon, Full Moon, Waning Gibbous Moon, Third Quarter Moon, Waning Crescent Moon |
+| $.Moon.Phase.Name             | New Moon, Waxing crescent, First quarter, Waxing gibbous, Full Moon, Waning gibbous, Third quarter, Waning crescent |
 | $.Moon.Phase.Value            | Moon phase as index | 0..7 |
 | $.Moon.Phase.Number           | Age of moon in since New Moon (0) - Full Moon (1) | decimal |
 | $.Moon.Age                    | Age of moon in radians | 0..359 |

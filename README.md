@@ -19,7 +19,9 @@ If you like **lib_mysqludf_astro** give it a star or fork it:
 From the base directory run:
 
 ```bash
-make clean && make && sudo make install
+make clean
+make
+sudo make install
 ```
 
 This will build and install the library file.
@@ -30,14 +32,15 @@ To create a country-specific version, call make command with the parameter LANG=
 
 Example: Create and install a Dutch binary use
 ```bash
-make clean && make LANG=-DLANG_NL && sudo make install
+make clean
+make LANG=-DLANG_NL
+sudo make install
 ```
 
-Finally, we activate the loadable function in MySQL Server with the following SQL queries:
+Finally we activate the loadable function in MySQL Server (replace `username` by a local MySQL user which has the permission to create functions, e. g. root)
 
-```SQL
-CREATE FUNCTION astro_info RETURNS STRING SONAME 'lib_mysqludf_astro.so';
-CREATE FUNCTION astro RETURNS STRING SONAME 'lib_mysqludf_astro.so';
+```bash
+mysql -u username -p < install.sql
 ```
 
 ### Uninstall
@@ -125,6 +128,57 @@ The function returns the astro info as JSON string with the following keys:
 | $.Moon.Age                    | Age of moon in radians | 0..359 |
 | $.Moon.Sign                   | Moon sign | Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio,Sagittarius, Capricorn, Aquarius, Pisces |
 
+### Examples
+
+Get sun rise/set
+
+```SQL
+SET @ts = NOW();
+SET @latitude = 53.182153;
+SET @longitude = 4.854429;
+SET @timezone = TIMESTAMPDIFF(HOUR, UTC_TIMESTAMP(), NOW());
+
+SELECT
+    JSON_VALUE(astro(@ts, @latitude, @longitude, @timezone), '$.Time') AS `Time`,
+    JSON_VALUE(astro(@ts, @latitude, @longitude, @timezone), '$.Sun.Rise.Sunrise') AS `Sunrise`,
+    JSON_VALUE(astro(@ts, @latitude, @longitude, @timezone), '$.Sun.Set.Sunset') AS `Sunset`;
+```
+
+returns
+
+```sql
++---------------------+----------+----------+
+| Time                | Sunrise  | Sunset   |
++---------------------+----------+----------+
+| 2023-01-18T09:00:00 | 08:44:23 | 16:58:02 |
++---------------------+----------+----------+
+```
+
+Get some moon info
+
+```SQL
+SET @ts = NOW();
+SET @latitude = 53.182153;
+SET @longitude = 4.854429;
+SET @timezone = TIMESTAMPDIFF(HOUR, UTC_TIMESTAMP(), NOW());
+
+SELECT 
+    JSON_VALUE(astro(@ts, @latitude, @longitude, @timezone), '$.Time') AS `Time`,
+    JSON_VALUE(astro(@ts, @latitude, @longitude, @timezone), '$.Moon.Rise') AS `Moonrise`,
+    JSON_VALUE(astro(@ts, @latitude, @longitude, @timezone), '$.Moon.Set') AS `Moonset`,
+    JSON_VALUE(astro(@ts, @latitude, @longitude, @timezone), '$.Moon.Phase.Name') AS `Phase`,
+    ROUND(CAST(JSON_VALUE(astro(@ts, @latitude, @longitude, @timezone), '$.Moon.Age') AS FLOAT) / 3.6, 0) AS `% Age`;
+```
+
+returns
+
+```sql
++---------------------+----------+----------+-----------------+-------+
+| Time                | Moonrise | Moonset  | Phase           | % Age |
++---------------------+----------+----------+-----------------+-------+
+| 2023-01-18T09:00:00 | 05:33:24 | 12:52:19 | Waning crescent |    86 |
++---------------------+----------+----------+-----------------+-------+
+```
 
 ## astro_info()
 

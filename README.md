@@ -128,6 +128,72 @@ The function returns the astro info as JSON string with the following keys:
 | $.Moon.Age                    | Age of moon in radians | 0..359 |
 | $.Moon.Sign                   | Moon sign | Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio,Sagittarius, Capricorn, Aquarius, Pisces |
 
+Example:
+
+```JSON
+{
+  "Time": "2023-01-18T09:00:00",
+  "Zone": 1,
+  "Latitude": 53.182153,
+  "Longitude": 4.854429,
+  "deltaT": 65,
+  "JulianDate": 2459962.83333,
+  "GMST": "15:49:54",
+  "LMST": "16:09:19",
+  "Sun": {
+    "Distance": {
+      "Earth": 147182898.6,
+      "Observer": 147182769.4
+    },
+    "Ecliptic": 297.968,
+    "Declination": -20.565,
+    "Azimuth": 127.65,
+    "Height": 1.5,
+    "Diameter": 32.51,
+    "Rise": {
+      "Astronomical": "06:39:38",
+      "Nautical": "07:21:00",
+      "Civil": "08:04:22",
+      "Sunrise": "08:44:23"
+    },
+    "Culmination": "12:50:58",
+    "Set": {
+      "Sunset": "16:58:02",
+      "Civil": "17:38:04",
+      "Nautical": "18:21:28",
+      "Astronomical": "19:02:52"
+    },
+    "Ascension": "20:00:14",
+    "Zodiac": "Capricorn"
+  },
+  "Moon": {
+    "Distance": {
+      "Earth": 370620.2,
+      "Observer": 369274.6
+    },
+    "Ecliptic": {
+      "Latitude": -2.528,
+      "Longitude": 248.606
+    },
+    "Declination": -25.195,
+    "Azimuth": 176.16,
+    "Height": 12,
+    "Diameter": 32.24,
+    "Rise": "05:33:24",
+    "Culmination": "09:17:17",
+    "Set": "12:52:19",
+    "Ascension": "16:25:58",
+    "Phase": {
+      "Name": "Waning crescent",
+      "Value": 7,
+      "Number": 0.174
+    },
+    "Age": 310.737,
+    "Sign": "Sagittarius"
+  }
+}
+```
+
 ### Examples
 
 Get sun rise/set
